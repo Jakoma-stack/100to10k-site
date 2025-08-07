@@ -98,6 +98,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "I started with £100 and a bone. You’ve got Wi-Fi and this map." – Dex
    </div>
 </header>
+
+<div id="flash-sale-banner" style="background: #ff4757; color: white; padding: 20px; text-align: center; font-family: 'Raleway', sans-serif; font-weight: 700;">
+  🚨 3-Day Flash Sale! 🚨<br/>
+  Get the 100to10k Bootcamp Basic now at a special price!<br/>
+  Sale ends in: <span id="countdown-timer" style="font-size: 1.5rem; font-weight: 900;"></span><br/>
+  <a href="https://payhip.com/b/jMmO5?utm_source=100to10k&utm_medium=web&utm_campaign=flashsale" 
+     style="color: white; background: #1e88e5; padding: 10px 20px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; margin-top: 10px;">
+    Grab the Deal Now!
+  </a>
+</div>
+
 <!-- What is the 100to10k Challenge? -->
 <section style="text-align: center; padding: 2rem;">
 <h2>📺 The Show You Didn’t Know You Needed</h2>
@@ -221,6 +232,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="cta-button" href="https://payhip.com/b/0iOVG?utm_source=100to10k&amp;utm_medium=web&amp;utm_campaign=free_map">
 🚀 Start Your Journey Now
   </a></footer>
+ <script>
+  // Set sale end date/time in UTC (update to your actual sale end date)
+  const saleEnd = new Date("August 13, 2025 00:00:00 UTC").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = saleEnd - now;
+
+    if (distance < 0) {
+      document.getElementById("flash-sale-banner").style.display = "none";
+      clearInterval(countdownInterval);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown-timer").innerText =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown();
+  const countdownInterval = setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </head></html>
 
